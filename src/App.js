@@ -40,6 +40,7 @@ function App() {
         <Login/>
       ) : (
         <div className="app__body">
+    
           <Sidebar/>
           <Feed/>
           <Widgets/>

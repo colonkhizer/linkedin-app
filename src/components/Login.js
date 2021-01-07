@@ -65,7 +65,7 @@ function Login() {
 
                <button onClick={loginToApp}>Sign In</button>
            </form>
-           <p>New to LinkedIn? <span className="login__register" onClick={register}>Join now</span> </p>
+           <p>New to LinkedIn ? <span className="login__register" onClick={register}>Join now</span> </p>
         </div>
     )
 }

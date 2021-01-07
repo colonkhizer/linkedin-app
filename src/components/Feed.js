@@ -12,6 +12,7 @@ import firebase from 'firebase'
 import { useSelector } from 'react-redux';
 import { selectUser } from '../features/counter/userSlice';
 import FlipMove from 'react-flip-move';
+import CustomizedSnackbar from '../Snackbar';
 
 function Feed() {
 
@@ -19,6 +20,8 @@ function Feed() {
     const [posts, setPosts] = useState([]);
     const [input, setInput] = useState("");
     const user = useSelector(selectUser)
+
+    const [open,setOpen] = useState(false)
 
     useEffect(() => {
         db.collection("posts")
@@ -48,11 +51,13 @@ function Feed() {
             timestamp: firebase.firestore.FieldValue.serverTimestamp()
         })
 
+        setOpen(true)
         setInput('')
     }
 
     return (
         <div className="feed">
+         <CustomizedSnackbar open={open} setOpen={setOpen}/>
             <div className="feed__inputContainer">
                 <div className="feed__input">
                     <CreateIcon/>
